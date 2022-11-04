@@ -1,0 +1,15 @@
+{
+    // "dotnet-test-explorer.testProjectPath": "react_form/Test1"
+    "java.project.sourcePaths": [
+        "react_form/src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/andreatrifunova/Desktop/testng-7.6.1/**/*.jar",
+        "/Users/andreatrifunova/Downloads/testng-7.6.1.jar",
+        "/Users/andreatrifunova/Downloads/selenium-server-4.5.3.jar",
+        "/Users/andreatrifunova/Desktop/poi-5.2.3.jar"
+    ],
+    "git.ignoreLimitWarning": true
+}

@@ -1,0 +1,1430 @@
+[debug] [2022-11-03T21:48:25.355Z] ----------------------------------------------------------------------
+[debug] [2022-11-03T21:48:25.357Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-11-03T21:48:25.357Z] CLI Version:   11.6.0
+[debug] [2022-11-03T21:48:25.357Z] Platform:      darwin
+[debug] [2022-11-03T21:48:25.357Z] Node Version:  v16.18.0
+[debug] [2022-11-03T21:48:25.358Z] Time:          Thu Nov 03 2022 22:48:25 GMT+0100 (Central European Standard Time)
+[debug] [2022-11-03T21:48:25.358Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-03T21:48:25.403Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-03T21:48:25.404Z] > authorizing via signed-in user (andrea.trifunova16@gmail.com)
+[debug] [2022-11-03T21:48:25.404Z] [iam] checking project form181159 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2022-11-03T21:48:25.405Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions [none]
+[debug] [2022-11-03T21:48:25.406Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions x-goog-quota-user=projects/form181159
+[debug] [2022-11-03T21:48:25.406Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2022-11-03T21:48:26.482Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions 200
+[debug] [2022-11-03T21:48:26.482Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2022-11-03T21:48:26.482Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-11-03T21:48:26.482Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-11-03T21:48:27.485Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-11-03T21:48:27.485Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'form181159'...
+[info] 
+[info] i  deploying firestore, functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2022-11-03T21:48:28.828Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/form181159:test [none]
+[debug] [2022-11-03T21:48:28.828Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/form181159:test [omitted]
+[debug] [2022-11-03T21:48:29.328Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/form181159:test 200
+[debug] [2022-11-03T21:48:29.328Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/form181159:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2022-11-03T21:48:29.331Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/form181159 [none]
+[debug] [2022-11-03T21:48:29.737Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/form181159 200
+[debug] [2022-11-03T21:48:29.738Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/form181159 {"projectId":"form181159","projectNumber":"187201449599","displayName":"form181159","name":"projects/form181159","resources":{"hostingSite":"form181159","storageBucket":"form181159.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_f185696a-118f-48b5-83bf-da130e54135b"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-11-03T21:48:29.740Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-11-03T21:48:29.741Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-11-03T21:48:29.742Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudbuild.googleapis.com [none]
+[debug] [2022-11-03T21:48:29.743Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/artifactregistry.googleapis.com [none]
+[debug] [2022-11-03T21:48:30.867Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/runtimeconfig.googleapis.com 200
+[debug] [2022-11-03T21:48:30.867Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-11-03T21:48:30.869Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudbuild.googleapis.com 200
+[debug] [2022-11-03T21:48:30.869Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-11-03T21:48:30.870Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudfunctions.googleapis.com 200
+[debug] [2022-11-03T21:48:30.870Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-11-03T21:48:30.872Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/artifactregistry.googleapis.com 200
+[debug] [2022-11-03T21:48:30.872Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-11-03T21:48:30.873Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig [none]
+[debug] [2022-11-03T21:48:31.216Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig 200
+[debug] [2022-11-03T21:48:31.216Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig {"projectId":"form181159","storageBucket":"form181159.appspot.com","locationId":"europe-west"}
+[debug] [2022-11-03T21:48:31.217Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/form181159/configs [none]
+[debug] [2022-11-03T21:48:31.788Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/form181159/configs 200
+[debug] [2022-11-03T21:48:31.789Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/form181159/configs {}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-11-03T21:48:31.791Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-03T21:48:33.606Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-03T21:48:33.606Z] Building nodejs source
+[debug] [2022-11-03T21:48:33.611Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-03T21:48:33.777Z] Serving at port 9005
+
+[debug] [2022-11-03T21:48:33.930Z] Got response from /__/functions.yaml {"endpoints":{"scheduledFunction":{"platform":"gcfv1","scheduleTrigger":{"schedule":"every 5 seconds"},"labels":{},"entryPoint":"scheduledFunction"}},"specVersion":"v1alpha1","requiredAPIs":[{"api":"cloudscheduler.googleapis.com","reason":"Needed for scheduled functions."}]}
+[debug] [2022-11-03T21:48:33.937Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/andreatrifunova/Desktop/react_app/react_form/functions (78.52 KB) for uploading 
+[debug] [2022-11-03T21:48:33.983Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/-/functions [none]
+[debug] [2022-11-03T21:48:34.756Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/-/functions 200
+[debug] [2022-11-03T21:48:34.756Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/-/functions {"functions":[{"name":"projects/form181159/locations/us-central1/functions/helloWorld","httpsTrigger":{"url":"https://us-central1-form181159.cloudfunctions.net/helloWorld","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"helloWorld","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-01T20:15:27.504Z","versionId":"1","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/12ccb6b0-4c14-448a-a6f7-f30e4f9d8dad.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"c20c5d3f-3a29-4081-910b-73e72532fdcd","buildName":"projects/187201449599/locations/us-central1/builds/c20c5d3f-3a29-4081-910b-73e72532fdcd","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/4a8bfa6f-6f2f-4e31-b0c4-a7f1e5bfbcee.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"}]}
+[debug] [2022-11-03T21:48:34.757Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2alpha/projects/form181159/locations/-/functions [none]
+[debug] [2022-11-03T21:48:35.982Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2alpha/projects/form181159/locations/-/functions 200
+[debug] [2022-11-03T21:48:35.982Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2alpha/projects/form181159/locations/-/functions {}
+[info] i  functions: ensuring required API cloudscheduler.googleapis.com is enabled... 
+[debug] [2022-11-03T21:48:35.988Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudscheduler.googleapis.com [none]
+[debug] [2022-11-03T21:48:37.111Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudscheduler.googleapis.com 200
+[debug] [2022-11-03T21:48:37.112Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudscheduler.googleapis.com [omitted]
+[info] ✔  functions: required API cloudscheduler.googleapis.com is enabled 
+[debug] [2022-11-03T21:48:37.114Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/form181159 [none]
+[debug] [2022-11-03T21:48:37.518Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/form181159 200
+[debug] [2022-11-03T21:48:37.519Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/form181159 {"projectId":"form181159","projectNumber":"187201449599","displayName":"form181159","name":"projects/form181159","resources":{"hostingSite":"form181159","storageBucket":"form181159.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_f185696a-118f-48b5-83bf-da130e54135b"}
+[debug] [2022-11-03T21:48:37.521Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/form181159/releases pageSize=10&pageToken=
+[debug] [2022-11-03T21:48:37.522Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2022-11-03T21:48:37.853Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/form181159/releases 200
+[debug] [2022-11-03T21:48:37.853Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/form181159/releases {"releases":[{"name":"projects/form181159/releases/cloud.firestore","rulesetName":"projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383","createTime":"2022-10-18T08:02:34.309104Z","updateTime":"2022-11-03T16:12:04.278862Z"}]}
+[debug] [2022-11-03T21:48:37.854Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383 [none]
+[debug] [2022-11-03T21:48:37.923Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2022-11-03T21:48:37.924Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2022-11-03T21:48:37.924Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false [none]
+[debug] [2022-11-03T21:48:38.224Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383 200
+[debug] [2022-11-03T21:48:38.224Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383 [omitted]
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[debug] [2022-11-03T21:48:38.283Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false 200
+[debug] [2022-11-03T21:48:38.283Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false {"fields":[{"name":"projects/form181159/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully 
+[debug] [2022-11-03T21:48:38.284Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2022-11-03T21:48:38.284Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2022-11-03T21:48:39.051Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2022-11-03T21:48:39.052Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D"}
+[debug] [2022-11-03T21:48:39.053Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip GoogleAccessId=service-187201449599%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D
+[debug] [2022-11-03T21:48:39.053Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip [stream]
+[debug] [2022-11-03T21:48:39.545Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip 200
+[debug] [2022-11-03T21:48:39.545Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
+[debug] [2022-11-03T21:48:39.546Z] [rules] releasing cloud.firestore with ruleset projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383
+[debug] [2022-11-03T21:48:39.547Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore [none]
+[debug] [2022-11-03T21:48:39.547Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore {"release":{"name":"projects/form181159/releases/cloud.firestore","rulesetName":"projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383"}}
+[debug] [2022-11-03T21:48:40.079Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore 200
+[debug] [2022-11-03T21:48:40.079Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore {"name":"projects/form181159/releases/cloud.firestore","rulesetName":"projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383","createTime":"2022-10-18T08:02:34.309104Z","updateTime":"2022-11-03T21:48:40.106907Z"}
+[debug] [2022-11-03T21:48:40.080Z] [rules] updated release projects/form181159/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[info] 
+The following functions are found in your project but do not exist in your local source code:
+	helloWorld(us-central1)
+
+If you are renaming a function or changing its region, it is recommended that you create the new function first before deleting the old one to prevent event loss. For more info, visit https://firebase.google.com/docs/functions/manage-functions#modify
+
+[info] i  functions: updating Node.js 16 function scheduledFunction(us-central1)... 
+[debug] [2022-11-03T21:48:46.214Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction updateMask=name%2CsourceUploadUrl%2CentryPoint%2Cruntime%2CdockerRegistry%2Clabels%2CeventTrigger.eventType%2CeventTrigger.resource%2CenvironmentVariables%2CavailableMemoryMb%2CsourceToken
+[debug] [2022-11-03T21:48:46.214Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction {"name":"projects/form181159/locations/us-central1/functions/scheduledFunction","sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","entryPoint":"scheduledFunction","runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1"},"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"availableMemoryMb":256}
+[debug] [2022-11-03T21:48:47.042Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction 200
+[debug] [2022-11-03T21:48:47.042Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:46Z"}}
+[debug] [2022-11-03T21:48:47.043Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:48:47.467Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:48:47.467Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z"}}
+[debug] [2022-11-03T21:48:47.969Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:48:47.970Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:48:48.319Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:48:48.319Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:48:49.320Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:48:49.321Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:48:49.710Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:48:49.710Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:48:51.712Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:48:51.712Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:48:52.162Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:48:52.162Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:48:56.164Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:48:56.164Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:48:56.493Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:48:56.494Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:49:04.494Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:49:04.494Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:49:04.841Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:49:04.841Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:49:14.842Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:49:14.843Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:49:15.315Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:49:15.315Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:49:25.317Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:49:25.317Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:49:25.747Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:49:25.748Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:49:35.748Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:49:35.749Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:49:36.192Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:49:36.192Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:48:47Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","sourceToken":"943441f0-5b97-49ce-9397-c49a44170c8e","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"}}
+[debug] [2022-11-03T21:49:36.192Z] Got source token 943441f0-5b97-49ce-9397-c49a44170c8e for region us-central1
+[debug] [2022-11-03T21:49:46.193Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:49:46.193Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw [none]
+[debug] [2022-11-03T21:49:46.638Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw 200
+[debug] [2022-11-03T21:49:46.638Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi9xS3EybVI4VVpBcw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T16:14:37.354Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667513918&Signature=Jgab%2F4bVy%2BOpX8o4DAlTyo5H8BSvnH02jseZ8pdLdxSzlfCLDi7VNA3Ur1YRjSg4L8REoOl%2BOjZLD%2BQ%2FZdj1ZIa%2BZ2Eeq2As8HHt0suKEDds3qMeTheI3563M9sxZm2KBPCEKRQoPn%2FBJdm2hvpJnwYJGlbiUMDmTqe8C0OLVcACdhdkS16bapgXhSZRjr2rUkAZUsYjsM44dMA1J954rpoMBBWSsD2LZn%2BXC3iQin2ygWHazRB3G%2F9HuePhEdVCExdJQXWQBAeQZVloPhubIZoj8UxsLZHcE42WB4c3cABcdC6tLj3uWUrdhOCpHm5CuKL3mpvZpuH67lYp4WDOSw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"53910638-b51e-4046-a19f-1eda6e281c5d","buildName":"projects/187201449599/locations/us-central1/builds/53910638-b51e-4046-a19f-1eda6e281c5d","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"2","updateTime":"2022-11-03T21:49:43Z","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","sourceToken":"943441f0-5b97-49ce-9397-c49a44170c8e","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b"},"done":true,"response":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"}}
+[debug] [2022-11-03T21:49:46.638Z] Got source token 943441f0-5b97-49ce-9397-c49a44170c8e for region us-central1
+[debug] [2022-11-03T21:49:46.640Z] >>> [apiv2][query] GET https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1 [none]
+[debug] [2022-11-03T21:49:46.969Z] <<< [apiv2][status] GET https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1 404
+[debug] [2022-11-03T21:49:46.970Z] <<< [apiv2][body] GET https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1 {"error":{"code":404,"message":"Job not found.","status":"NOT_FOUND"}}
+[debug] [2022-11-03T21:49:46.970Z] >>> [apiv2][query] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs [none]
+[debug] [2022-11-03T21:49:46.970Z] >>> [apiv2][body] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs {"timeZone":"America/Los_Angeles","name":"projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1","pubsubTarget":{"topicName":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","attributes":{"scheduled":"true"}},"schedule":"every 5 seconds"}
+[debug] [2022-11-03T21:49:47.300Z] <<< [apiv2][status] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs 400
+[debug] [2022-11-03T21:49:47.300Z] <<< [apiv2][body] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs {"error":{"code":400,"message":"Schedule or time zone is invalid.","status":"INVALID_ARGUMENT"}}
+[error] Failed to create scheduler job projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1: HTTP Error: 400, Schedule or time zone is invalid.
+[debug] [2022-11-03T21:49:47.306Z] Total Function Deployment time: 61091
+[debug] [2022-11-03T21:49:47.306Z] 1 Functions Deployed
+[debug] [2022-11-03T21:49:47.307Z] 1 Functions Errored
+[debug] [2022-11-03T21:49:47.307Z] 0 Function Deployments Aborted
+[debug] [2022-11-03T21:49:47.307Z] Average Function Deployment time: 61090
+[info] 
+[info] Functions deploy had errors with the following functions:
+	scheduledFunction(us-central1)
+[info] i  functions: cleaning up build files... 
+[debug] [2022-11-03T21:49:47.476Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/repositories/gcf-artifacts/packages/scheduled_function [none]
+[debug] [2022-11-03T21:49:47.477Z] >>> [apiv2][query] GET https://us.gcr.io/v2/form181159/gcf/us-central1/tags/list [none]
+[debug] [2022-11-03T21:49:47.943Z] <<< [apiv2][status] GET https://us.gcr.io/v2/form181159/gcf/us-central1/tags/list 200
+[debug] [2022-11-03T21:49:47.943Z] <<< [apiv2][body] GET https://us.gcr.io/v2/form181159/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"form181159/gcf/us-central1","tags":[]}
+[debug] [2022-11-03T21:49:47.943Z] Could not find image for function projects/form181159/locations/us-central1/functions/scheduledFunction
+[debug] [2022-11-03T21:49:48.387Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/repositories/gcf-artifacts/packages/scheduled_function 200
+[debug] [2022-11-03T21:49:48.387Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/repositories/gcf-artifacts/packages/scheduled_function {"name":"projects/form181159/locations/us-central1/operations/4e0d1cd6-8c10-47f1-990a-8d4685faa670","metadata":{"@type":"type.googleapis.com/google.devtools.artifactregistry.v1beta2.OperationMetadata"}}
+[debug] [2022-11-03T21:49:48.387Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/operations/4e0d1cd6-8c10-47f1-990a-8d4685faa670 [none]
+[debug] [2022-11-03T21:49:49.402Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/operations/4e0d1cd6-8c10-47f1-990a-8d4685faa670 200
+[debug] [2022-11-03T21:49:49.402Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/operations/4e0d1cd6-8c10-47f1-990a-8d4685faa670 {"name":"projects/form181159/locations/us-central1/operations/4e0d1cd6-8c10-47f1-990a-8d4685faa670","metadata":{"@type":"type.googleapis.com/google.devtools.artifactregistry.v1beta2.OperationMetadata"},"done":true,"response":{"@type":"type.googleapis.com/google.protobuf.Empty"}}
+[debug] [2022-11-03T21:49:49.403Z] Functions deploy failed.
+[debug] [2022-11-03T21:49:49.403Z] {
+  "endpoint": {
+    "id": "scheduledFunction",
+    "project": "form181159",
+    "region": "us-central1",
+    "entryPoint": "scheduledFunction",
+    "platform": "gcfv1",
+    "runtime": "nodejs16",
+    "scheduleTrigger": {
+      "schedule": "every 5 seconds",
+      "timeZone": null
+    },
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}",
+      "GCLOUD_PROJECT": "form181159"
+    },
+    "codebase": "default",
+    "availableMemoryMb": 256,
+    "securityLevel": "SECURE_ALWAYS"
+  },
+  "op": "upsert schedule",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Failed to create scheduler job projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1: HTTP Error: 400, Schedule or time zone is invalid.",
+    "status": 500
+  }
+}
+[debug] [2022-11-03T21:49:49.559Z] Error: Failed to upsert schedule function scheduledFunction in region us-central1
+    at /usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:41:11
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Fabricator.upsertScheduleV1 (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:456:9)
+    at async Fabricator.setTrigger (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:419:17)
+    at async Fabricator.updateEndpoint (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:144:9)
+    at async handle (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:77:17)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2022-11-03T21:50:54.659Z] ----------------------------------------------------------------------
+[debug] [2022-11-03T21:50:54.660Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-11-03T21:50:54.661Z] CLI Version:   11.6.0
+[debug] [2022-11-03T21:50:54.661Z] Platform:      darwin
+[debug] [2022-11-03T21:50:54.661Z] Node Version:  v16.18.0
+[debug] [2022-11-03T21:50:54.662Z] Time:          Thu Nov 03 2022 22:50:54 GMT+0100 (Central European Standard Time)
+[debug] [2022-11-03T21:50:54.662Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-03T21:50:54.708Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-03T21:50:54.708Z] > authorizing via signed-in user (andrea.trifunova16@gmail.com)
+[debug] [2022-11-03T21:50:54.709Z] [iam] checking project form181159 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2022-11-03T21:50:54.710Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions [none]
+[debug] [2022-11-03T21:50:54.711Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions x-goog-quota-user=projects/form181159
+[debug] [2022-11-03T21:50:54.711Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2022-11-03T21:50:55.662Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions 200
+[debug] [2022-11-03T21:50:55.662Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/form181159:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2022-11-03T21:50:55.662Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-11-03T21:50:55.662Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-11-03T21:50:56.471Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-11-03T21:50:56.472Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/form181159/serviceAccounts/form181159@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'form181159'...
+[info] 
+[info] i  deploying firestore, functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2022-11-03T21:50:57.303Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/form181159:test [none]
+[debug] [2022-11-03T21:50:57.303Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/form181159:test [omitted]
+[debug] [2022-11-03T21:50:57.804Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/form181159:test 200
+[debug] [2022-11-03T21:50:57.804Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/form181159:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2022-11-03T21:50:57.807Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/form181159 [none]
+[debug] [2022-11-03T21:50:58.167Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/form181159 200
+[debug] [2022-11-03T21:50:58.167Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/form181159 {"projectId":"form181159","projectNumber":"187201449599","displayName":"form181159","name":"projects/form181159","resources":{"hostingSite":"form181159","storageBucket":"form181159.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_f185696a-118f-48b5-83bf-da130e54135b"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-11-03T21:50:58.169Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-11-03T21:50:58.170Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-11-03T21:50:58.171Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudbuild.googleapis.com [none]
+[debug] [2022-11-03T21:50:58.172Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/artifactregistry.googleapis.com [none]
+[debug] [2022-11-03T21:50:59.253Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/artifactregistry.googleapis.com 200
+[debug] [2022-11-03T21:50:59.254Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-11-03T21:50:59.255Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudfunctions.googleapis.com 200
+[debug] [2022-11-03T21:50:59.256Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-11-03T21:50:59.256Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/runtimeconfig.googleapis.com 200
+[debug] [2022-11-03T21:50:59.256Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-11-03T21:50:59.260Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudbuild.googleapis.com 200
+[debug] [2022-11-03T21:50:59.260Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-11-03T21:50:59.260Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig [none]
+[debug] [2022-11-03T21:50:59.749Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig 200
+[debug] [2022-11-03T21:50:59.749Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig {"projectId":"form181159","storageBucket":"form181159.appspot.com","locationId":"europe-west"}
+[debug] [2022-11-03T21:50:59.750Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/form181159/configs [none]
+[debug] [2022-11-03T21:51:00.085Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/form181159/configs 200
+[debug] [2022-11-03T21:51:00.085Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/form181159/configs {}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-11-03T21:51:00.087Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-03T21:51:01.267Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-03T21:51:01.268Z] Building nodejs source
+[debug] [2022-11-03T21:51:01.269Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-03T21:51:01.451Z] Serving at port 9005
+
+[debug] [2022-11-03T21:51:01.496Z] Got response from /__/functions.yaml {"endpoints":{"scheduledFunction":{"platform":"gcfv1","scheduleTrigger":{"schedule":"every 5 seconds"},"labels":{},"entryPoint":"scheduledFunction"}},"specVersion":"v1alpha1","requiredAPIs":[{"api":"cloudscheduler.googleapis.com","reason":"Needed for scheduled functions."}]}
+[debug] [2022-11-03T21:51:01.501Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/andreatrifunova/Desktop/react_app/react_form/functions (78.52 KB) for uploading 
+[debug] [2022-11-03T21:51:01.545Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/-/functions [none]
+[debug] [2022-11-03T21:51:02.244Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/-/functions 200
+[debug] [2022-11-03T21:51:02.244Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/-/functions {"functions":[{"name":"projects/form181159/locations/us-central1/functions/helloWorld","httpsTrigger":{"url":"https://us-central1-form181159.cloudfunctions.net/helloWorld","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"helloWorld","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-01T20:15:27.504Z","versionId":"1","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/12ccb6b0-4c14-448a-a6f7-f30e4f9d8dad.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"c20c5d3f-3a29-4081-910b-73e72532fdcd","buildName":"projects/187201449599/locations/us-central1/builds/c20c5d3f-3a29-4081-910b-73e72532fdcd","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/c936b9dd-140e-4598-bb76-76b91c049fdc.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"}]}
+[debug] [2022-11-03T21:51:02.244Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2alpha/projects/form181159/locations/-/functions [none]
+[debug] [2022-11-03T21:51:03.369Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2alpha/projects/form181159/locations/-/functions 200
+[debug] [2022-11-03T21:51:03.369Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2alpha/projects/form181159/locations/-/functions {}
+[info] i  functions: ensuring required API cloudscheduler.googleapis.com is enabled... 
+[debug] [2022-11-03T21:51:03.374Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudscheduler.googleapis.com [none]
+[debug] [2022-11-03T21:51:04.462Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudscheduler.googleapis.com 200
+[debug] [2022-11-03T21:51:04.462Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/form181159/services/cloudscheduler.googleapis.com [omitted]
+[info] ✔  functions: required API cloudscheduler.googleapis.com is enabled 
+[debug] [2022-11-03T21:51:04.464Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/form181159 [none]
+[debug] [2022-11-03T21:51:04.780Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/form181159 200
+[debug] [2022-11-03T21:51:04.781Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/form181159 {"projectId":"form181159","projectNumber":"187201449599","displayName":"form181159","name":"projects/form181159","resources":{"hostingSite":"form181159","storageBucket":"form181159.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_f185696a-118f-48b5-83bf-da130e54135b"}
+[debug] [2022-11-03T21:51:04.782Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/form181159/releases pageSize=10&pageToken=
+[debug] [2022-11-03T21:51:04.783Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2022-11-03T21:51:05.158Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2022-11-03T21:51:05.158Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2022-11-03T21:51:05.158Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false [none]
+[debug] [2022-11-03T21:51:05.546Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false 200
+[debug] [2022-11-03T21:51:05.546Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/form181159/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false {"fields":[{"name":"projects/form181159/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully 
+[debug] [2022-11-03T21:51:05.605Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/form181159/releases 200
+[debug] [2022-11-03T21:51:05.605Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/form181159/releases {"releases":[{"name":"projects/form181159/releases/cloud.firestore","rulesetName":"projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383","createTime":"2022-10-18T08:02:34.309104Z","updateTime":"2022-11-03T21:48:40.106907Z"}]}
+[debug] [2022-11-03T21:51:05.606Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383 [none]
+[debug] [2022-11-03T21:51:06.507Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383 200
+[debug] [2022-11-03T21:51:06.508Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383 [omitted]
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[debug] [2022-11-03T21:51:06.510Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2022-11-03T21:51:06.510Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2022-11-03T21:51:07.222Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2022-11-03T21:51:07.222Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D"}
+[debug] [2022-11-03T21:51:07.223Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip GoogleAccessId=service-187201449599%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D
+[debug] [2022-11-03T21:51:07.223Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip [stream]
+[debug] [2022-11-03T21:51:07.730Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip 200
+[debug] [2022-11-03T21:51:07.731Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
+[debug] [2022-11-03T21:51:07.731Z] [rules] releasing cloud.firestore with ruleset projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383
+[debug] [2022-11-03T21:51:07.732Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore [none]
+[debug] [2022-11-03T21:51:07.732Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore {"release":{"name":"projects/form181159/releases/cloud.firestore","rulesetName":"projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383"}}
+[debug] [2022-11-03T21:51:08.349Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore 200
+[debug] [2022-11-03T21:51:08.349Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/form181159/releases/cloud.firestore {"name":"projects/form181159/releases/cloud.firestore","rulesetName":"projects/form181159/rulesets/b90408e7-4e4e-4f83-84d7-928011204383","createTime":"2022-10-18T08:02:34.309104Z","updateTime":"2022-11-03T21:51:08.298598Z"}
+[debug] [2022-11-03T21:51:08.349Z] [rules] updated release projects/form181159/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[info] 
+The following functions are found in your project but do not exist in your local source code:
+	helloWorld(us-central1)
+
+If you are renaming a function or changing its region, it is recommended that you create the new function first before deleting the old one to prevent event loss. For more info, visit https://firebase.google.com/docs/functions/manage-functions#modify
+
+[info] i  functions: updating Node.js 16 function scheduledFunction(us-central1)... 
+[debug] [2022-11-03T21:51:12.250Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction updateMask=name%2CsourceUploadUrl%2CentryPoint%2Cruntime%2CdockerRegistry%2Clabels%2CeventTrigger.eventType%2CeventTrigger.resource%2CenvironmentVariables%2CavailableMemoryMb%2CsourceToken
+[debug] [2022-11-03T21:51:12.250Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction {"name":"projects/form181159/locations/us-central1/functions/scheduledFunction","sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","entryPoint":"scheduledFunction","runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1"},"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"availableMemoryMb":256}
+[debug] [2022-11-03T21:51:12.857Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction 200
+[debug] [2022-11-03T21:51:12.857Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/form181159/locations/us-central1/functions/scheduledFunction {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:12Z"}}
+[debug] [2022-11-03T21:51:12.858Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:13.204Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:13.204Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z"}}
+[debug] [2022-11-03T21:51:13.705Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:51:13.705Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:14.055Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:14.055Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:51:15.057Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:51:15.057Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:15.519Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:15.519Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:51:17.520Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:51:17.521Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:17.854Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:17.854Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:51:21.854Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:51:21.855Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:22.166Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:22.166Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:51:30.168Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:51:30.168Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:30.513Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:30.514Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:51:40.515Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:51:40.515Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:40.821Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:40.822Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:51:50.822Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:51:50.822Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:51:51.152Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:51:51.153Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:52:01.153Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:52:01.154Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:52:01.490Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:52:01.490Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:52:11.492Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:52:11.492Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:52:11.818Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:52:11.819Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","sourceToken":"1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:52:11.819Z] Got source token 1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48 for region us-central1
+[debug] [2022-11-03T21:52:21.820Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:52:21.821Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:52:22.175Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:52:22.176Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","sourceToken":"1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:52:22.176Z] Got source token 1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48 for region us-central1
+[debug] [2022-11-03T21:52:32.176Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:52:32.177Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:52:32.502Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:52:32.502Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","sourceToken":"1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:52:32.502Z] Got source token 1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48 for region us-central1
+[debug] [2022-11-03T21:52:42.504Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:52:42.505Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:52:42.966Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:52:42.967Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","sourceToken":"1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:52:42.967Z] Got source token 1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48 for region us-central1
+[debug] [2022-11-03T21:52:52.968Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:52:52.969Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:52:53.294Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:52:53.295Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:51:13Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","sourceToken":"1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"}}
+[debug] [2022-11-03T21:52:53.295Z] Got source token 1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48 for region us-central1
+[debug] [2022-11-03T21:53:03.296Z] [update-default-us-central1-scheduledFunction] Retrying task index 0
+[debug] [2022-11-03T21:53:03.297Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw [none]
+[debug] [2022-11-03T21:53:03.680Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw 200
+[debug] [2022-11-03T21:53:03.681Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw {"name":"operations/Zm9ybTE4MTE1OS91cy1jZW50cmFsMS9zY2hlZHVsZWRGdW5jdGlvbi8zNHdETHBJUFVSbw","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/form181159/locations/us-central1/functions/scheduledFunction","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:49:43.858Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip?GoogleAccessId=service-187201449599@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667514067&Signature=hwaUMGNdCigHz%2F2T9DX6W8t%2FVLsSTwTKBVq%2FwmrCtbsR1I1FqGMWfIhNAbKfdaHPYamQh3z7t6kg4Ed21wM0WjvyhZ2ycJlHrO8DP7QIXN0h9kwY3Pq02VJB4soCFq6eyCwE2ApPTZ%2B1ssK9yASRi0%2BfVxEeyw2JjUpKMpU9Mt%2BlzMFke%2FTg7f2bVFgMHO7KJipoIJ%2FBUcI%2BPE96Kr8EdBH4BAgI4bF9ugtoEckK6WFX8l2Xzaprt%2FJU6Pe2LHwAnnrUIm4e9RilW6%2FOWOwNGKXOGueVZGnZnY8kBDE0LWLKk0xTmHAkKI6BE0iHezf0AMWcFCYhnlwXY12kegowdw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a6a085c8-8428-495b-ad6c-494699371e5b","buildName":"projects/187201449599/locations/us-central1/builds/a6a085c8-8428-495b-ad6c-494699371e5b","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"3","updateTime":"2022-11-03T21:53:03Z","buildId":"74981e44-c706-457f-9af3-8a06285e016a","sourceToken":"1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a"},"done":true,"response":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/form181159/locations/us-central1/functions/scheduledFunction","eventTrigger":{"eventType":"google.pubsub.topic.publish","resource":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","service":"pubsub.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"scheduledFunction","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"form181159@appspot.gserviceaccount.com","updateTime":"2022-11-03T21:53:03.563Z","versionId":"3","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-775217742863.us-central1.cloudfunctions.appspot.com/8fbc40e3-460a-44b2-91a3-3ecfea56139d.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"form181159"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"74981e44-c706-457f-9af3-8a06285e016a","buildName":"projects/187201449599/locations/us-central1/builds/74981e44-c706-457f-9af3-8a06285e016a","dockerRegistry":"ARTIFACT_REGISTRY"}}
+[debug] [2022-11-03T21:53:03.681Z] Got source token 1cde79a4-eef2-47cd-8c7e-bd30ac7f5a48 for region us-central1
+[debug] [2022-11-03T21:53:03.681Z] >>> [apiv2][query] GET https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1 [none]
+[debug] [2022-11-03T21:53:03.920Z] <<< [apiv2][status] GET https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1 404
+[debug] [2022-11-03T21:53:03.920Z] <<< [apiv2][body] GET https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1 {"error":{"code":404,"message":"Job not found.","status":"NOT_FOUND"}}
+[debug] [2022-11-03T21:53:03.920Z] >>> [apiv2][query] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs [none]
+[debug] [2022-11-03T21:53:03.921Z] >>> [apiv2][body] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs {"timeZone":"America/Los_Angeles","name":"projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1","pubsubTarget":{"topicName":"projects/form181159/topics/firebase-schedule-scheduledFunction-us-central1","attributes":{"scheduled":"true"}},"schedule":"every 5 seconds"}
+[debug] [2022-11-03T21:53:04.243Z] <<< [apiv2][status] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs 400
+[debug] [2022-11-03T21:53:04.243Z] <<< [apiv2][body] POST https://cloudscheduler.googleapis.com/v1/projects/form181159/locations/europe-west1/jobs {"error":{"code":400,"message":"Schedule or time zone is invalid.","status":"INVALID_ARGUMENT"}}
+[error] Failed to create scheduler job projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1: HTTP Error: 400, Schedule or time zone is invalid.
+[debug] [2022-11-03T21:53:04.247Z] Total Function Deployment time: 111998
+[debug] [2022-11-03T21:53:04.247Z] 1 Functions Deployed
+[debug] [2022-11-03T21:53:04.247Z] 1 Functions Errored
+[debug] [2022-11-03T21:53:04.247Z] 0 Function Deployments Aborted
+[debug] [2022-11-03T21:53:04.247Z] Average Function Deployment time: 111997
+[info] 
+[info] Functions deploy had errors with the following functions:
+	scheduledFunction(us-central1)
+[info] i  functions: cleaning up build files... 
+[debug] [2022-11-03T21:53:04.449Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/repositories/gcf-artifacts/packages/scheduled_function [none]
+[debug] [2022-11-03T21:53:04.450Z] >>> [apiv2][query] GET https://us.gcr.io/v2/form181159/gcf/us-central1/tags/list [none]
+[debug] [2022-11-03T21:53:04.745Z] <<< [apiv2][status] GET https://us.gcr.io/v2/form181159/gcf/us-central1/tags/list 200
+[debug] [2022-11-03T21:53:04.745Z] <<< [apiv2][body] GET https://us.gcr.io/v2/form181159/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"form181159/gcf/us-central1","tags":[]}
+[debug] [2022-11-03T21:53:04.745Z] Could not find image for function projects/form181159/locations/us-central1/functions/scheduledFunction
+[debug] [2022-11-03T21:53:05.276Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/repositories/gcf-artifacts/packages/scheduled_function 200
+[debug] [2022-11-03T21:53:05.276Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/repositories/gcf-artifacts/packages/scheduled_function {"name":"projects/form181159/locations/us-central1/operations/d7cc266f-01df-4ce4-bbc5-fd2b3f459659","metadata":{"@type":"type.googleapis.com/google.devtools.artifactregistry.v1beta2.OperationMetadata"}}
+[debug] [2022-11-03T21:53:05.276Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/operations/d7cc266f-01df-4ce4-bbc5-fd2b3f459659 [none]
+[debug] [2022-11-03T21:53:05.568Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/operations/d7cc266f-01df-4ce4-bbc5-fd2b3f459659 200
+[debug] [2022-11-03T21:53:05.569Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1beta2/projects/form181159/locations/us-central1/operations/d7cc266f-01df-4ce4-bbc5-fd2b3f459659 {"name":"projects/form181159/locations/us-central1/operations/d7cc266f-01df-4ce4-bbc5-fd2b3f459659","metadata":{"@type":"type.googleapis.com/google.devtools.artifactregistry.v1beta2.OperationMetadata"},"done":true,"response":{"@type":"type.googleapis.com/google.protobuf.Empty"}}
+[debug] [2022-11-03T21:53:05.569Z] Functions deploy failed.
+[debug] [2022-11-03T21:53:05.569Z] {
+  "endpoint": {
+    "id": "scheduledFunction",
+    "project": "form181159",
+    "region": "us-central1",
+    "entryPoint": "scheduledFunction",
+    "platform": "gcfv1",
+    "runtime": "nodejs16",
+    "scheduleTrigger": {
+      "schedule": "every 5 seconds",
+      "timeZone": null
+    },
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"form181159\",\"storageBucket\":\"form181159.appspot.com\",\"locationId\":\"europe-west\"}",
+      "GCLOUD_PROJECT": "form181159"
+    },
+    "codebase": "default",
+    "availableMemoryMb": 256,
+    "securityLevel": "SECURE_ALWAYS"
+  },
+  "op": "upsert schedule",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Failed to create scheduler job projects/form181159/locations/europe-west1/jobs/firebase-schedule-scheduledFunction-us-central1: HTTP Error: 400, Schedule or time zone is invalid.",
+    "status": 500
+  }
+}
+[debug] [2022-11-03T21:53:05.728Z] Error: Failed to upsert schedule function scheduledFunction in region us-central1
+    at /usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:41:11
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Fabricator.upsertScheduleV1 (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:456:9)
+    at async Fabricator.setTrigger (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:419:17)
+    at async Fabricator.updateEndpoint (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:144:9)
+    at async handle (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:77:17)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2022-11-03T21:53:35.331Z] ----------------------------------------------------------------------
+[debug] [2022-11-03T21:53:35.333Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2022-11-03T21:53:35.333Z] CLI Version:   11.6.0
+[debug] [2022-11-03T21:53:35.333Z] Platform:      darwin
+[debug] [2022-11-03T21:53:35.333Z] Node Version:  v16.18.0
+[debug] [2022-11-03T21:53:35.334Z] Time:          Thu Nov 03 2022 22:53:35 GMT+0100 (Central European Standard Time)
+[debug] [2022-11-03T21:53:35.334Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-03T21:53:35.394Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-03T21:53:35.395Z] > authorizing via signed-in user (andrea.trifunova16@gmail.com)
+[debug] [2022-11-03T21:53:35.538Z] java version "16.0.2" 2021-07-20
+
+[debug] [2022-11-03T21:53:35.539Z] Java(TM) SE Runtime Environment (build 16.0.2+7-67)
+Java HotSpot(TM) 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)
+
+[debug] [2022-11-03T21:53:35.543Z] Parsed Java major version: 16
+[info] i  emulators: Starting emulators: functions, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore"}}
+[debug] [2022-11-03T21:53:35.557Z] [hub] writing locator at /var/folders/yn/j81wmfhj4d33kxkpxk_zwccc0000gn/T/hub-form181159.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, database, hosting, pubsub, storage, eventarc {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, database, hosting, pubsub, storage, eventarc\u001b[22m"}}
+[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-11-03T21:53:35.575Z] defaultcredentials: writing to file /Users/andreatrifunova/.config/firebase/andrea_trifunova16_gmail.com_application_default_credentials.json
+[debug] [2022-11-03T21:53:35.583Z] Setting GAC to /Users/andreatrifunova/.config/firebase/andrea_trifunova16_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/andreatrifunova/.config/firebase/andrea_trifunova16_gmail.com_application_default_credentials.json"}}
+[debug] [2022-11-03T21:53:35.585Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig [none]
+[debug] [2022-11-03T21:53:35.927Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig 200
+[debug] [2022-11-03T21:53:35.927Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/form181159/adminSdkConfig {"projectId":"form181159","storageBucket":"form181159.appspot.com","locationId":"europe-west"}
+[debug] [2022-11-03T21:53:35.969Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-11-03T21:53:35.970Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-11-03T21:53:35.970Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/andreatrifunova/.cache/firebase/emulators/cloud-firestore-emulator-v1.14.4.jar","--host","localhost","--port",8080,"--rules","/Users/andreatrifunova/Desktop/react_app/react_form/firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/andreatrifunova/.cache/firebase/emulators/cloud-firestore-emulator-v1.14.4.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"/Users/andreatrifunova/Desktop/react_app/react_form/firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-11-03T21:53:37.323Z] Nov 03, 2022 10:53:37 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:55184
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 03, 2022 10:53:37 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://localhost:55184\n"}}
+[debug] [2022-11-03T21:53:37.347Z] API endpoint: http://localhost:8080 {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost:8080"}}
+[debug] [2022-11-03T21:53:37.347Z] 
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8080\n\nDev App Server is now running.\n\n"}}
+[debug] [2022-11-03T21:53:37.504Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-11-03T21:53:37.504Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-11-03T21:53:37.505Z] Starting Emulator UI with command {"binary":"node","args":["/Users/andreatrifunova/.cache/firebase/emulators/ui-v1.9.0/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/andreatrifunova/.cache/firebase/emulators/ui-v1.9.0/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-11-03T21:53:37.635Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "/Users/andreatrifunova/Desktop/react_app/react_form/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/andreatrifunova/Desktop/react_app/react_form/functions\" for Cloud Functions..."}}
+[debug] [2022-11-03T21:53:37.772Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-03T21:53:39.621Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-03T21:53:39.622Z] Building nodejs source
+[debug] [2022-11-03T21:53:39.622Z] Analyzing nodejs backend spec
+[debug] [2022-11-03T21:53:39.624Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-03T21:53:39.795Z] Serving at port 9005
+
+[debug] [2022-11-03T21:53:39.837Z] Got response from /__/functions.yaml {"endpoints":{"scheduledFunction":{"platform":"gcfv1","scheduleTrigger":{"schedule":"every 5 seconds"},"labels":{},"entryPoint":"scheduledFunction"}},"specVersion":"v1alpha1","requiredAPIs":[{"api":"cloudscheduler.googleapis.com","reason":"Needed for scheduled functions."}]}
+[debug] [2022-11-03T21:53:39.842Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: scheduledFunction. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: scheduledFunction."}}
+[info] i  functions[us-central1-scheduledFunction]: function ignored because the pubsub emulator does not exist or is not running. {"metadata":{"emulator":{"name":"functions"},"message":"function ignored because the pubsub emulator does not exist or is not running."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:4000/functions │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Firestore │ localhost:8080 │ http://localhost:4000/firestore │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-11-03T21:53:45.936Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-03T21:53:46.939Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-03T21:53:48.116Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-03T21:53:48.116Z] Building nodejs source
+[debug] [2022-11-03T21:53:48.117Z] Analyzing nodejs backend spec
+[debug] [2022-11-03T21:53:48.118Z] Could not find functions.yaml. Must use http discovery
+[error] ⬢  functions: Failed to load function definition from source: FetchError: request to http://localhost:9005/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9005 {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FetchError: request to http://localhost:9005/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9005"}}
+[debug] [2022-11-03T21:53:48.279Z] Serving at port 9005
+
+[debug] [2022-11-03T21:53:48.328Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-11-04T10:51:50.734Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:51:51.737Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:51:53.341Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:51:53.341Z] Building nodejs source
+[debug] [2022-11-04T10:51:53.341Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:51:53.343Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:51:53.615Z] Serving at port 9005
+
+[debug] [2022-11-04T10:51:53.632Z] Got response from /__/functions.yaml Failed to generate manifest from function source: SyntaxError: Unexpected token ')'
+[debug] [2022-11-04T10:51:53.634Z] Failed to parse functions.yamlincomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:
+     ... rom function source: SyntaxError: Unexpected token ')'
+                                         ^ {"name":"YAMLException","reason":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line","mark":{"name":null,"buffer":"Failed to generate manifest from function source: SyntaxError: Unexpected token ')'\n\u0000","position":61,"line":0,"column":61},"message":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:\n     ... rom function source: SyntaxError: Unexpected token ')'\n                                         ^"}
+[debug] [2022-11-04T10:51:53.636Z] shutdown requested via /__/quitquitquit
+
+[error] ⬢  functions: Failed to load function definition from source: FetchError: request to http://localhost:9005/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9005 {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FetchError: request to http://localhost:9005/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9005"}}
+[debug] [2022-11-04T10:52:16.983Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:17.985Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:52:19.090Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:52:19.090Z] Building nodejs source
+[debug] [2022-11-04T10:52:19.091Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:52:19.091Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:52:19.277Z] Serving at port 9005
+
+[debug] [2022-11-04T10:52:19.381Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:52:19.392Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-11-04T10:52:19.392Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: helloWorld, sayHello. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld, sayHello."}}
+[info] ✔  functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/form181159/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/form181159/us-central1/helloWorld)."}}
+[info] ✔  functions[us-central1-sayHello]: http function initialized (http://localhost:5001/form181159/us-central1/sayHello). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/form181159/us-central1/sayHello)."}}
+[debug] [2022-11-04T10:52:27.256Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:28.259Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:52:29.785Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:52:29.785Z] Building nodejs source
+[debug] [2022-11-04T10:52:29.785Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:52:29.786Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:52:29.961Z] Serving at port 9005
+
+[debug] [2022-11-04T10:52:30.041Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:52:30.049Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-11-04T10:52:30.049Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: helloWorld, sayHello. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld, sayHello."}}
+[debug] [2022-11-04T10:52:33.907Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:34.909Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:52:36.142Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:52:36.143Z] Building nodejs source
+[debug] [2022-11-04T10:52:36.143Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:52:36.143Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:52:36.371Z] Serving at port 9005
+
+[debug] [2022-11-04T10:52:36.432Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:52:36.437Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-11-04T10:52:36.438Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: helloWorld, sayHello. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld, sayHello."}}
+[debug] [2022-11-04T10:52:40.383Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:40.484Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:41.484Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:52:42.942Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:52:42.942Z] Building nodejs source
+[debug] [2022-11-04T10:52:42.942Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:52:42.943Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:52:43.153Z] Serving at port 9005
+
+[debug] [2022-11-04T10:52:43.212Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:52:43.215Z] shutdown requested via /__/quitquitquit
+
+[error] ⬢  functions: Failed to load function definition from source: FetchError: request to http://localhost:9005/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9005 {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FetchError: request to http://localhost:9005/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9005"}}
+[debug] [2022-11-04T10:52:48.267Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:48.367Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:49.368Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:52:51.670Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:52:51.670Z] Building nodejs source
+[debug] [2022-11-04T10:52:51.670Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:52:51.672Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:52:51.853Z] Serving at port 9006
+
+[debug] [2022-11-04T10:52:51.910Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:52:51.919Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: helloWorld, sayHello. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld, sayHello."}}
+[debug] [2022-11-04T10:52:57.464Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:52:58.466Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:52:59.698Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:52:59.698Z] Building nodejs source
+[debug] [2022-11-04T10:52:59.698Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:52:59.699Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:52:59.869Z] Serving at port 9005
+
+[debug] [2022-11-04T10:52:59.913Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:54:39.410Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:54:40.411Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:54:42.478Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:54:42.479Z] Building nodejs source
+[debug] [2022-11-04T10:54:42.479Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:54:42.479Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:54:42.660Z] Serving at port 9005
+
+[debug] [2022-11-04T10:54:42.707Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:54:53.394Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:54:54.395Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:54:56.578Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:54:56.578Z] Building nodejs source
+[debug] [2022-11-04T10:54:56.578Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:54:56.582Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:54:56.798Z] Serving at port 9005
+
+[debug] [2022-11-04T10:55:08.687Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:55:09.690Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:55:11.233Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:55:11.233Z] Building nodejs source
+[debug] [2022-11-04T10:55:11.233Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:55:11.235Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:55:11.410Z] Serving at port 9005
+
+[debug] [2022-11-04T10:55:11.457Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:55:11.460Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:55:14.221Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:55:15.222Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:55:16.603Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:55:16.603Z] Building nodejs source
+[debug] [2022-11-04T10:55:16.603Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:55:16.604Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:55:16.797Z] Serving at port 9005
+
+[debug] [2022-11-04T10:55:16.843Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"},"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:55:16.849Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: helloWorld, sayHello. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld, sayHello."}}
+[debug] [2022-11-04T10:55:38.090Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:55:39.093Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:55:40.554Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:55:40.554Z] Building nodejs source
+[debug] [2022-11-04T10:55:40.554Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:55:40.555Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:55:40.738Z] Serving at port 9006
+
+[debug] [2022-11-04T10:55:40.792Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"helloWorld"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T10:55:40.799Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: helloWorld. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld."}}
+[debug] [2022-11-04T10:55:55.363Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:55:56.365Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:55:57.915Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:55:57.915Z] Building nodejs source
+[debug] [2022-11-04T10:55:57.915Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:55:57.916Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:55:58.085Z] Serving at port 9006
+
+[debug] [2022-11-04T10:55:58.100Z] Got response from /__/functions.yaml Failed to generate manifest from function source: SyntaxError: Unexpected token 'export'
+[debug] [2022-11-04T10:55:58.101Z] Failed to parse functions.yamlincomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:
+     ... rom function source: SyntaxError: Unexpected token 'export'
+                                         ^ {"name":"YAMLException","reason":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line","mark":{"name":null,"buffer":"Failed to generate manifest from function source: SyntaxError: Unexpected token 'export'\n\u0000","position":61,"line":0,"column":61},"message":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:\n     ... rom function source: SyntaxError: Unexpected token 'export'\n                                         ^"}
+[debug] [2022-11-04T10:55:58.102Z] shutdown requested via /__/quitquitquit
+
+[error] ⬢  functions: Failed to load function definition from source: FetchError: request to http://localhost:9006/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9006 {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FetchError: request to http://localhost:9006/__/quitquitquit failed, reason: connect ECONNREFUSED 127.0.0.1:9006"}}
+[debug] [2022-11-04T10:56:17.858Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T10:56:18.863Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T10:56:20.448Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T10:56:20.448Z] Building nodejs source
+[debug] [2022-11-04T10:56:20.448Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T10:56:20.449Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T10:56:20.684Z] Serving at port 9006
+
+[debug] [2022-11-04T10:56:20.690Z] Got response from /__/functions.yaml Failed to generate manifest from function source: SyntaxError: Unexpected token 'export'
+[debug] [2022-11-04T10:56:20.691Z] Failed to parse functions.yamlincomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:
+     ... rom function source: SyntaxError: Unexpected token 'export'
+                                         ^ {"name":"YAMLException","reason":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line","mark":{"name":null,"buffer":"Failed to generate manifest from function source: SyntaxError: Unexpected token 'export'\n\u0000","position":61,"line":0,"column":61},"message":"incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line at line 1, column 62:\n     ... rom function source: SyntaxError: Unexpected token 'export'\n                                         ^"}
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Failed to load function definition from source: Failed to generate manifest from function source: SyntaxError: Unexpected token 'export' {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load function definition from source: Failed to generate manifest from function source: SyntaxError: Unexpected token 'export'"}}
+[debug] [2022-11-04T11:04:01.022Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T11:04:02.024Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T11:04:03.860Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T11:04:03.860Z] Building nodejs source
+[debug] [2022-11-04T11:04:03.861Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T11:04:03.861Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T11:04:04.104Z] Serving at port 9006
+
+[debug] [2022-11-04T11:04:04.189Z] Got response from /__/functions.yaml {"endpoints":{"sayHello":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"sayHello"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T11:06:05.018Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T11:06:06.019Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T11:06:07.817Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T11:06:07.817Z] Building nodejs source
+[debug] [2022-11-04T11:06:07.817Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T11:06:07.818Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T11:06:08.027Z] Serving at port 9007
+
+[debug] [2022-11-04T11:06:08.098Z] Got response from /__/functions.yaml {"endpoints":{"writeMessage":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"writeMessage"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T11:06:08.106Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: writeMessage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: writeMessage."}}
+[info] ✔  functions[us-central1-writeMessage]: http function initialized (http://localhost:5001/form181159/us-central1/writeMessage). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/form181159/us-central1/writeMessage)."}}
+[debug] [2022-11-04T11:32:13.388Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T11:32:14.391Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T11:32:15.891Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T11:32:15.891Z] Building nodejs source
+[debug] [2022-11-04T11:32:15.891Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T11:32:15.892Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T11:32:16.150Z] Serving at port 9006
+
+[debug] [2022-11-04T11:32:16.241Z] Got response from /__/functions.yaml {"endpoints":{"writeMessage":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"writeMessage"},"scheduledFunction":{"platform":"gcfv1","scheduleTrigger":{"schedule":"every 5 minutes"},"labels":{},"entryPoint":"scheduledFunction"}},"specVersion":"v1alpha1","requiredAPIs":[{"api":"cloudscheduler.googleapis.com","reason":"Needed for scheduled functions."}]}
+[debug] [2022-11-04T12:11:16.111Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T12:11:17.115Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T12:11:20.016Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T12:11:20.016Z] Building nodejs source
+[debug] [2022-11-04T12:11:20.016Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T12:11:20.017Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T12:11:20.269Z] Serving at port 9006
+
+[debug] [2022-11-04T12:11:20.373Z] Got response from /__/functions.yaml {"endpoints":{"writeMessage":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"writeMessage"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-04T12:14:44.210Z] File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/andreatrifunova/Desktop/react_app/react_form/functions/index.js changed, reloading triggers"}}
+[debug] [2022-11-04T12:14:45.212Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-04T12:14:47.380Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-04T12:14:47.380Z] Building nodejs source
+[debug] [2022-11-04T12:14:47.380Z] Analyzing nodejs backend spec
+[debug] [2022-11-04T12:14:47.381Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-04T12:14:47.626Z] Serving at port 9006
+
+[debug] [2022-11-04T12:14:47.663Z] Got response from /__/functions.yaml {"endpoints":{"writeMessage":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"writeMessage"}},"specVersion":"v1alpha1","requiredAPIs":[]}
